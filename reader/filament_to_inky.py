@@ -43,9 +43,9 @@ def get_args():
 def get_reader():
     r = readers()
     if not r:
-        raise RuntimeError("Ingen PC/SC-läsare hittades")
+        raise RuntimeError("No PC/SC-reader found")
 
-    print("Använder läsare:", r[0])
+    print("Using reader:", r[0])
     return r[0]
 
 
@@ -67,33 +67,33 @@ def read_raw_tag(reader):
                 try:
                     resp, sw1, sw2 = conn.transmit(apdu)
                 except Exception as e:
-                    print(f"Stopp block {block}: {e}")
+                    print(f"Stop block {block}: {e}")
                     break
 
                 if sw1 == 0x90 and sw2 == 0x00:
                     raw.extend(resp)
                 else:
-                    print(f"Stopp block {block}: SW={sw1:02X} {sw2:02X}")
+                    print(f"Stop block {block}: SW={sw1:02X} {sw2:02X}")
                     break
 
             if len(raw) < 80:
-                raise RuntimeError(f"För lite data läst: {len(raw)} bytes")
+                raise RuntimeError(f"Too little data read: {len(raw)} bytes")
 
-            print("Bytes lästa:", len(raw))
+            print("Bytes read:", len(raw))
             return bytes(raw)
 
         except Exception as e:
-            print(f"Läsförsök {attempt} misslyckades:", e)
+            print(f"Read attempt {attempt} failed:", e)
             time.sleep(0.5)
 
-    raise RuntimeError("Kunde inte läsa taggen efter flera försök")
+    raise RuntimeError("could not read the tag after several tries")
 
 
 def extract_instance_id_from_raw(raw):
-    # OpenPrintTag CBOR-mönster:
+    # OpenPrintTag CBOR-pattern:
     # 05 6A <10 ascii bytes>
     # 05 = instanceId-fält
-    # 6A = CBOR text string med längd 10
+    # 6A = CBOR text string with length 10
 
     for i in range(len(raw) - 12):
         if raw[i] == 0x05 and raw[i + 1] == 0x6A:
@@ -106,10 +106,10 @@ def extract_instance_id_from_raw(raw):
 
             if len(text) == 10 and all(c in "0123456789abcdefABCDEF" for c in text):
                 instance_id = text.lower()
-                print("Instance ID hittad:", instance_id)
+                print("Instance ID found:", instance_id)
                 return instance_id
 
-    raise RuntimeError("Hittade inget instanceId i OpenPrintTag-rådata")
+    raise RuntimeError("found no instanceId in OpenPrintTag-rawdata")
 
 
 def get_filament_from_mongo(mongo_uri, db_name, instance_id):
@@ -188,7 +188,7 @@ def main():
     print("Inky URL:", args.inky)
 
     reader = get_reader()
-    print("Väntar på tagg...")
+    print("waiting for tagg...")
 
     while True:
         try:
@@ -198,13 +198,13 @@ def main():
             filament = get_filament_from_mongo(args.mongo, args.db_name, instance_id)
 
             if not filament:
-                print("Hittade inget filament i MongoDB för instanceId:", instance_id)
+                print("found no filament in MongoDB for instanceId:", instance_id)
                 time.sleep(2)
                 continue
 
             data = build_json(instance_id, filament)
 
-            print("Skickar JSON till Inky:")
+            print("Sending JSON to Inky:")
             print(json.dumps(data, indent=2, ensure_ascii=False))
 
             send_to_inky(args.inky, data)
@@ -218,7 +218,7 @@ def main():
             time.sleep(1)
 
         except Exception as e:
-            print("Fel:", e)
+            print("Error:", e)
             time.sleep(2)
 
 
