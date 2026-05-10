@@ -194,18 +194,18 @@ def filament():
     data = request.get_json(silent=True)
 
     if data is None:
-        return "Ingen giltig JSON\n", 400
+        return "No valid JSON\n", 400
 
-    print(datetime.datetime.now(), "JSON mottagen")
+    print(datetime.datetime.now(), "JSON received")
     print(json.dumps(data, indent=2, ensure_ascii=False), flush=True)
 
     with open(BASE_DIR / "last_filament.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-    print("Renderar till Inky...", flush=True)
+    print("Renderar Inky...", flush=True)
     render_to_inky(data)
 
-    print("Klar", flush=True)
+    print("Done!", flush=True)
     return "OK\n"
 
 
