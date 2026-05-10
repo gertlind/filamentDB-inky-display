@@ -9,18 +9,19 @@ app = Flask(__name__)
 inky = auto()
 
 WIDTH, HEIGHT = inky.resolution
-BASE_DIR = Path("/home/gert/inky")
+# BASE_DIR = Path("/home/gert/inky")
+BASE_DIR = Path("/home/gert/filamentDB-inky-display")
 LABELS_FILE = BASE_DIR / "labels.json"
 
 FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 FONT_REG = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
 DEFAULT_LABELS = {
-    "color": "Färg",
+    "color": "Color",
     "diameter": "Diameter",
-    "remaining_g": "KVAR (g)",
-    "remaining_m": "LÄNGD (m)",
-    "updated": "Uppdaterad",
+    "remaining_g": "Remaining (g)",
+    "remaining_m": "Length (m)",
+    "updated": "Uppdated",
     "id": "ID",
 }
 
