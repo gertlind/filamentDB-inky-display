@@ -2,15 +2,21 @@
 <p align="center">
 <img src="images/inky_pic.png" width="700">
 </p>
-Display filament information from [FilamentDB](https://github.com/hyiger/filament-db/blob/main/README.md) on an Inky e-paper display using NFC OpenPrintTag tags.
 
 ## Features
-- Read OpenPrintTag NFC tags using ACS ACR1552U reader/writer
+- Display filament information from [Filament-DB](https://github.com/hyiger/filament-db/blob/main/README.md)
+- Read [OpenPrintTag](https://openprinttag.org) NFC tags using ACS ACR1552U reader/writer
 - Lookup filament data directly from MongoDB
 - Does not need an installation of Filament DB software
 - Send filament data to a remote Inky display
 - Material icons for PLA / PETG / TPU etc.
 - Designed for Raspberry Pi + systemd services
+
+## Filament-DB
+Filament-DB is a software that let you keep track on all your filaments.
+This project relies on the database that Filament-DB uses.
+You need to set up your instance of Filament-DB in order to use these scripts. You don't need to run FilamentDB on the Reader Pi, it reads the FilamentDB mongo database directly from MongoDB Atlas.
+[Read all about how to set up and use FilamentDB.](https://github.com/hyiger/filament-db/blob/main/README.md)
 
 ## Hardware
 Hardware needed for this project:
