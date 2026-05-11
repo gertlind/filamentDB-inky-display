@@ -5,8 +5,9 @@
 Display filament information from [FilamentDB](url) on an Inky e-paper display using NFC OpenPrintTag tags.
 
 ## Features
-- Read OpenPrintTag NFC tags using ACS ACR1552U
+- Read OpenPrintTag NFC tags using ACS ACR1552U reader/writer
 - Lookup filament data directly from MongoDB
+- Does not need an installation of Filament DB software
 - Send filament data to a remote Inky display
 - Material icons for PLA / PETG / TPU etc.
 - Designed for Raspberry Pi + systemd services
@@ -19,7 +20,7 @@ Hardware needed for this project:
 * [ACS ACR1552U NFC reader](https://www.amazon.com/dp/B0CJPXCYWK?ref=ppx_yo2ov_dt_b_fed_asin_title)
 
 ### Display Pi
-* Raspberry Pi Zero 2
+* Raspberry Pi Zero 2W
 * Pimoroni Inky Impression 7.3”
 
 ### NFC Tags
