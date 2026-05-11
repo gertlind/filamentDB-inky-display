@@ -2,7 +2,7 @@
 <p align="center">
 <img src="images/inky_pic.png" width="700">
 </p>
-Display filament information from [FilamentDB](url) on an Inky e-paper display using NFC OpenPrintTag tags.
+Display filament information from [FilamentDB](https://github.com/hyiger/filament-db/blob/main/README.md) on an Inky e-paper display using NFC OpenPrintTag tags.
 
 ## Features
 - Read OpenPrintTag NFC tags using ACS ACR1552U reader/writer
