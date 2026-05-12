@@ -1,7 +1,5 @@
 # Installation
 ## Reader Pi
-- git clone https://github.com/gertlind/filamentDB-inky-display.git
-- cd filamentDB-inky-display
 - sudo apt update
 - sudo apt full-upgrade -y
 - sudo reboot
@@ -15,3 +13,27 @@ sudo apt install -y\
     python3-dev \
     python3-venv
 ```
+- git clone https://github.com/gertlind/filamentDB-inky-display.git
+- cd filamentDB-inky-display
+- python3 -m venv .venv
+- source .venv/bin/activate
+- pip install -r reader/requirements.txt
+- deactivate
+
+## Inky Pi
+### Updates
+- sudo apt update
+- sudo apt full-upgrade -y
+- sudo reboot
+```bash
+sudo apt install -y \
+    git \
+    python3-dev \
+    python3-venv \
+    libopenjp2-7 \
+    libtiff5
+```
+### Activate SPI
+- sudo raspi-config
+Interface Options
+→ SPI
