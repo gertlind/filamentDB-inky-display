@@ -12,10 +12,11 @@
 - Material icons for PLA / PETG / TPU etc.
 - Designed for Raspberry Pi + systemd services
 
-## Filament-DB
+## [Filament-DB](https://github.com/hyiger/filament-db/blob/main/README.md)
 Filament-DB is a software that let you keep track on all your filaments.
 This project relies on the database that Filament-DB uses.
-You need to set up your instance of Filament-DB in order to use these scripts. You don't need to run FilamentDB on the Reader Pi, it reads the FilamentDB mongo database directly from MongoDB Atlas.
+You need to set up your instance of Filament-DB in order to use these scripts.<BR> 
+You don't need to run FilamentDB on the Reader Pi, it reads the FilamentDB mongo database directly from MongoDB Atlas. The benefit to have FilamentDB software installed on Reader Pi is that then it's possible write tags with filament data from Reader Pi.
 [Read all about how to set up and use FilamentDB.](https://github.com/hyiger/filament-db/blob/main/README.md)
 
 ## Hardware
