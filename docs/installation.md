@@ -35,8 +35,6 @@ sudo apt install -y \
     libatlas-base-dev
 ```
 ### Activate SPI
-- sudo raspi-config
-→ Interface Options → SPI → Enable
-or
-sudo raspi-config nonint do_spi 0
+- sudo raspi-config → Interface Options → SPI → Enable
+
 
