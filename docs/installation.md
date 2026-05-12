@@ -31,10 +31,11 @@ sudo apt install -y \
     python3-dev \
     python3-venv \
     libopenjp2-7 \
-    libtiff6
+    libtiff6 \
     libatlas-base-dev
 ```
 ### Activate SPI
 - sudo raspi-config → Interface Options → SPI → Enable
-
-
+## Configure and enable services.
+- [Reader service](docs/readerservice.md)
+- [Inky Pi service](docs/inkyservice.md)
