@@ -31,9 +31,12 @@ sudo apt install -y \
     python3-dev \
     python3-venv \
     libopenjp2-7 \
-    libtiff5
+    libtiff6
+    libatlas-base-dev
 ```
 ### Activate SPI
 - sudo raspi-config
-Interface Options
-→ SPI
+→ Interface Options → SPI → Enable
+or
+sudo raspi-config nonint do_spi 0
+
