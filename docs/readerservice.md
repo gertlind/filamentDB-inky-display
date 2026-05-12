@@ -23,3 +23,13 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 ```
+Enable and start:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable filament_to_inky.service
+sudo systemctl start filament_to_inky.service
+```
+View logs:
+```bash
+journalctl -u filament_to_inky.service -f
+```

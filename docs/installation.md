@@ -37,5 +37,5 @@ sudo apt install -y \
 ### Activate SPI
 - sudo raspi-config → Interface Options → SPI → Enable
 ## Configure and enable services.
-- [Reader service](/docs/readerservice.md)
+- [Reader Pi service](/docs/readerservice.md)
 - [Inky Pi service](/docs/inkyservice.md)
